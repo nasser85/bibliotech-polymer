@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Alerts Container</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+    <!-- Import the element to test -->
+    <script type="module" src="../elements/alerts-container.js"></script>
+  </head>
+  <body>
+    <test-fixture id="AlertsContainer">
+      <template>
+        <alerts-container></alerts-container>
+      </template>
+    </test-fixture>
+
+    <script type="module">
+      suite('alerts-container tests', function() {
+        test('Book Title Should be The Soul of Man under Socialism', function() {
+          var myView = fixture('AlertsContainer');
+          var title = myView.shadowRoot.querySelector('.book-title');
+
+          assert.equal(title.textContent, 'The Soul od Man under Socialism');
+        });
+      });
+    </script>
+  </body>
+</html>

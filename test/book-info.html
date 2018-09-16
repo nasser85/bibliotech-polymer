@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Book info</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+    <!-- Import the element to test -->
+    <script type="module" src="../elements/book-info.js"></script>
+  </head>
+  <body>
+    <test-fixture id="BookInfo">
+      <template>
+        <book-info></book-info>
+      </template>
+    </test-fixture>
+
+    <script type="module">
+      suite('book-info tests', function() {
+        test('Book Title Should be The Soul of Man under Socialism', function() {
+          var myView = fixture('BookInfo');
+          var title = myView.shadowRoot.querySelector('.title');
+
+          assert.equal(title.textContent, 'The Soul od Man under Socialism');
+        });
+        test('Book Author Should be Oscar Wilde', function() {
+          var myView = fixture('BookInfo');
+          var author = myView.shadowRoot.querySelector('.author');
+
+          assert.equal(author.textContent, 'Oscar Wilde');
+        });
+      });
+    </script>
+  </body>
+</html>
